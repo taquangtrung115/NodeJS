@@ -11,6 +11,15 @@ let getHomePage = async (req, res) => {
     }
 }
 
+let getCRUD = async (req, res) => {
+    try {
+        return res.render('crudPage.ejs');
+    } catch (e) {
+        console.log(e);
+    }
+}
+
 module.exports = {
-    getHomePage: getHomePage
+    getHomePage: getHomePage,
+    getCRUD: getCRUD,
 }
