@@ -10,10 +10,15 @@ module.exports = {
       lastName: 'Quang Trung',
       address: 'HCM',
       gender: 1,
-      typeRole: 'ROLE',
-      keyRole: 'R1',
+      roleId: '1',
+      phoneNumber: '0352393384',
+      positionId: '1',
+      image: '1',
       createdAt: new Date(),
       updatedAt: new Date()
+
+      // positionId: DataTypes.STRING,
+      // image: DataTypes.STRING,
     }]);
   },
 

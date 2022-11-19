@@ -1,4 +1,5 @@
 import db from '../models/index';
+import CRUDSevices from '../sevices/CRUDServices';
 
 let getHomePage = async (req, res) => {
     try {
@@ -11,15 +12,22 @@ let getHomePage = async (req, res) => {
     }
 }
 
-let getCRUD = async (req, res) => {
-    try {
-        return res.render('crudPage.ejs');
-    } catch (e) {
-        console.log(e);
-    }
+let getCrud = async (req, res) => {
+    let data = await CRUDSevices.getAllUser();
+    console.log(data);
+    return res.render('viewUser.ejs', {
+        dataTable: data
+    });
+}
+
+let postCrud = async (req, res) => {
+    let message = await CRUDSevices.createNewUser(req.body);
+    console.log(message);
+    return res.send('crud nef');
 }
 
 module.exports = {
     getHomePage: getHomePage,
-    getCRUD: getCRUD,
+    getCrud: getCrud,
+    postCrud: postCrud,
 }
